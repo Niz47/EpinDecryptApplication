@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EpinDecryptApplication.Models.Film>
+@{
+    ViewBag.Title = "Films";
+}
+<h2>Films</h2>
+<table class="table">
+    <tr>
+        <th>Film ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Release Year</th>
+        <th>Length</th>
+        <th>Rating</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+        </tr>
+    }
+</table>

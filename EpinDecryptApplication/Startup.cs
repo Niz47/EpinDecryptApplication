@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using EpinDecryptApplication.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,8 @@ namespace EpinDecryptApplication
             services.AddSingleton<IFileProvider>(
                 new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
+
+            services.Add(new ServiceDescriptor(typeof(SakilaContext), new SakilaContext(Configuration.GetConnectionString("DefaultConnection"))));
 
             services.AddMvc();
         }
